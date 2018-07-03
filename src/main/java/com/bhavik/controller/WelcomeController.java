@@ -1,6 +1,7 @@
 package com.bhavik.controller;
 
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.AbstractController;
 import org.springframework.web.servlet.mvc.Controller;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -10,12 +11,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
-* With Controller Interface
+* With AbstractController Controller
 *
 * */
-public class WelcomeController implements Controller {
+public class WelcomeController extends AbstractController {
     @Override
-    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+    protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         String uname = httpServletRequest.getParameter("uname");
         System.out.println("Parameter name -> "+uname);
         Map<String, String> map = new HashMap<String, String>();
