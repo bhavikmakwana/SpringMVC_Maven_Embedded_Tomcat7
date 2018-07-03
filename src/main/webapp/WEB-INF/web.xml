@@ -1,15 +1,14 @@
 <!DOCTYPE web-app PUBLIC
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
 <web-app>
     <servlet>
-        <servlet-name>hello</servlet-name>
-        <servlet-class>com.bhavik.controller.WelcomeController</servlet-class>
+        <servlet-name>welcome</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>hello</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>welcome</servlet-name>
+        <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

@@ -1,33 +1,26 @@
 package com.bhavik.controller;
 
-import javax.servlet.*;
-import java.io.IOException;
-import java.io.PrintWriter;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-public class WelcomeController implements Servlet {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
+
+/*
+* With Controller Interface
+*
+* */
+public class WelcomeController implements Controller {
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
-
-    }
-
-    @Override
-    public ServletConfig getServletConfig() {
-        return null;
-    }
-
-    @Override
-    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        PrintWriter out = servletResponse.getWriter();
-        out.print("Hello");
-    }
-
-    @Override
-    public String getServletInfo() {
-        return null;
-    }
-
-    @Override
-    public void destroy() {
-
+    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+        String uname = httpServletRequest.getParameter("uname");
+        System.out.println("Parameter name -> "+uname);
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("uname",uname);
+        ModelAndView view = new ModelAndView("success", map);
+        return view;
     }
 }
